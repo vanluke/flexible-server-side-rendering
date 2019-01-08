@@ -1,0 +1,10 @@
+{
+  "eslint.enable": false,
+  "tslint.enable": true,
+  "tslint.alwaysShowStatus": true,
+  "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.rulers": [120]
+}
