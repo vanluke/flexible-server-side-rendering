@@ -1,11 +1,14 @@
 import * as express from 'express';
 import * as path from 'path';
+import * as dotenv from 'dotenv';
 import * as cors from 'cors';
 import * as parser from 'body-parser';
 import hot from './server.development';
 import render from './render';
 
-const PORT = 3000;
+dotenv.config();
+
+const PORT = process.env.PORT;
 const PROD = process.env.NODE_ENV === 'production';
 
 const app: express.Application = express();
