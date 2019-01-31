@@ -1,5 +1,5 @@
 import * as webpack from 'webpack';
-import nodeExternals from 'webpack-node-externals';
+import * as nodeExternals from 'webpack-node-externals';
 import loaders from './loaders';
 
 const paths = require('./paths');
