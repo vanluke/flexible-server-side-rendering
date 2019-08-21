@@ -6,10 +6,10 @@
   "scripts": {
     "test": "jest",
     "eslint": "eslint \"**/*.@(js|jsx)\"",
-    "build:production": "NODE_ENV=production webpack --config ./config/webpack.config.production.js",
+    "build:production": "NODE_ENV=production webpack --config ./config/webpack.config.production.js -w",
     "build:development": "NODE_ENV=development webpack --config ./config/webpack.config.development.js",
-    "start": "NODE_ENV=development nodemon ./src/index",
-    "start:dev": "NODE_ENV=development ts-node --project tsconfig.json src/server/index.ts"
+    "start": "NODE_ENV=development nodemon ./dist/server.js",
+    "start:dev": "NODE_ENV=development npm-run-all --parallel build:production start"
   },
   "author": "",
   "license": "ISC",
