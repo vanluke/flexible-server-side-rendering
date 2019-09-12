@@ -2,7 +2,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as React from 'react';
 import * as express from 'express';
-import { ThemeProvider } from 'styled-components';
+import {
+  ThemeProvider,
+  ServerStyleSheet,
+  StyleSheetManager,
+} from 'styled-components';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { renderRoutes } from 'react-router-config';
@@ -53,7 +57,7 @@ const renderApp = (prod: boolean) => (
   const styles = '';
 
   return res.render('index', {
-    title: 'NONAME',
+    title: process.env.APP_TITLE,
     data: {},
     content,
     styles,
@@ -90,13 +94,16 @@ type Render = {
 };
 
 const render = ({ req, context }: Render) => {
+  const sheet = new ServerStyleSheet();
   return {
     content: renderToString(
-      <ThemeProvider theme={skyBlue}>
-        <StaticRouter location={req.url} context={context}>
-          {renderRoutes(routes)}
-        </StaticRouter>
-      </ThemeProvider>
+      <StyleSheetManager sheet={sheet.instance}>
+        <ThemeProvider theme={skyBlue}>
+          <StaticRouter location={req.url} context={context}>
+            {renderRoutes(routes)}
+          </StaticRouter>
+        </ThemeProvider>
+      </StyleSheetManager>
     ),
   };
 };

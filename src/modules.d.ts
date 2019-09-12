@@ -5,3 +5,4 @@ declare interface NodeModule {
 }
 
 declare module '.*jpg';
+declare module '.*png';

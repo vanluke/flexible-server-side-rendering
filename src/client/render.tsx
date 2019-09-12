@@ -10,7 +10,9 @@ const rootEl = document && document.getElementById('app');
 const renderApp = () => {
   hydrate(
     <AppContainer>
-      <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
+      <>
+        <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
+      </>
     </AppContainer>,
     rootEl
   );

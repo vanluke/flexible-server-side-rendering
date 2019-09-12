@@ -3,8 +3,8 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import * as cors from 'cors';
 import * as parser from 'body-parser';
-import hot from './server.development';
 import render from './render';
+import hot from '../../server.development';
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ const listen = () =>
 
 if (PROD) {
   app.set('views', path.resolve('./dist/templates'));
-  app.use('/static', express.static('dist'));
+  app.use('/static/', express.static(path.resolve('./dist/static')));
 } else {
   app.set('views', path.join(__dirname, '..', 'templates'));
   hot(app);

@@ -7,7 +7,7 @@ const ENV = process.env.NODE_ENV || 'development';
 const DEV = ENV === 'development';
 const PROD = ENV === 'production';
 
-const plugins = getPlugins();
+const plugins = getPlugins(PROD);
 
 const entry = {
   polyfill: ['babel-polyfill'],

@@ -1,0 +1,3 @@
+/*
+  index file for server side rendering
+*/

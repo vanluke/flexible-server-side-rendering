@@ -12,9 +12,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-export default function() {
-  return [
-    new webpack.HotModuleReplacementPlugin(),
+export default function(isProduction) {
+  const plugins = [
     new CleanWebpackPlugin(['dist'], {
       root: path.resolve(__dirname, '../..'),
       verbose: true,
@@ -47,4 +46,8 @@ export default function() {
       },
     ]),
   ];
+  if (!isProduction) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+  }
+  return plugins;
 }

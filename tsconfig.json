@@ -24,7 +24,7 @@
     "checkJs": false,
     "skipDefaultLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "server.development.ts"],
   "exclude": [
     "config",
     ".storybook",

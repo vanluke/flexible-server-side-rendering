@@ -2,7 +2,7 @@ import * as webpack from 'webpack';
 import * as express from 'express';
 
 const HMR = (app: express.Application) => {
-  const devWebpackConfig = require('../../config/webpack.config.development');
+  const devWebpackConfig = require('./config/webpack.config.development');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
 
