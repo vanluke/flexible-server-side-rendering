@@ -10,7 +10,7 @@ export const routes = [
     routes: [
       {
         exact: true,
-        path: '/home',
+        path: '/',
         component: Home,
       },
       {

@@ -8,9 +8,10 @@ import {
   StyleSheetManager,
 } from 'styled-components';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router';
+import { StaticRouter, StaticRouterContext } from 'react-router';
 import { renderRoutes } from 'react-router-config';
 import routes from '../client/routes';
+import { skyBlue } from '../shared/theme';
 
 const getClientStats = (
   prod: boolean,
@@ -80,17 +81,9 @@ const renderPage = (req: express.Request, res: express.Response) => {
   renderApp(true)(req, res, assets);
 };
 
-export const skyBlue = {
-  name: 'skyblue theme',
-  fontFamily: 'Source Sans Pro',
-  fontStyle: 'normal',
-  fontWeight: '400',
-  fontSize: '16px',
-};
-
 type Render = {
   req: express.Request;
-  context?: any;
+  context?: StaticRouterContext;
 };
 
 const render = ({ req, context }: Render) => {

@@ -5,7 +5,7 @@ html(lang='en-UK')
     title= title
     style= styles
     each stylesheet in stylesheets
-      link(href= stylesheet)
+      link(href= stylesheet rel="stylesheet" type="text/css")
   body
     block content
     each item in src
