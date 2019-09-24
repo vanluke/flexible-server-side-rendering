@@ -1,7 +1,6 @@
 {
-  "eslint.enable": false,
-  "tslint.enable": true,
-  "tslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "eslint.alwaysShowStatus": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",

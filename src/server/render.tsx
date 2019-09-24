@@ -17,15 +17,15 @@ const getClientStats = (
   prod: boolean,
   res: express.Response,
   assets?: Stats
-) =>
-  !prod
-    ? res.locals.webpackStats
-        .toJson()
-        .children.find((st: { name: string }) => st.name === 'client')
-        .assetsByChunkName
-    : assets
-    ? assets.assetsByChunkName
-    : {};
+) => {
+  if (!prod) {
+    return res.locals.webpackStats
+      .toJson()
+      .children.find((st: { name: string }) => st.name === 'client')
+      .assetsByChunkName;
+  }
+  return assets ? assets.assetsByChunkName : {};
+};
 
 const renderApp = (prod: boolean) => (
   req: express.Request,
@@ -43,15 +43,15 @@ const renderApp = (prod: boolean) => (
       }
       return 1;
     })
-    .map((stats: string | Array<string>) => {
-      if (Array.isArray(stats)) {
+    .map((stat: string | Array<string>) => {
+      if (Array.isArray(stat)) {
         return {
-          css: stats.find((x: string) => x.indexOf('.css') >= 0),
-          js: stats.find((x: string) => x.indexOf('.js') >= 0),
+          css: stat.find((x: string) => x.indexOf('.css') >= 0),
+          js: stat.find((x: string) => x.indexOf('.js') >= 0),
         };
       }
       return {
-        js: stats,
+        js: stat,
       };
     });
 

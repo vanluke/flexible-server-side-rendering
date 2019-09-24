@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -15,10 +14,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 export default function(isProduction) {
   const plugins = [
     new CleanWebpackPlugin({
-      root: path.resolve(__dirname, '../..'),
       verbose: true,
-      cleanStaleWebpackAssets: false,
-      dry: false,
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,

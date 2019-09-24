@@ -16,6 +16,7 @@ const entry = {
     'react',
     'react-dom',
     'styled-components',
+    'react-hot-loader',
   ],
   main: DEV
     ? [

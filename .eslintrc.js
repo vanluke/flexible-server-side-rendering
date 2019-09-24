@@ -1,20 +1,47 @@
 module.exports = {
   extends: [
-    'standard',
-    'plugin:import/errors',
-    'prettier',
+    'eslint:recommended',
+    'airbnb-typescript',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
-  plugins: ['import'],
+  plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   env: {
-    es6: true,
     browser: true,
-  },
-  globals: {
-    environment: true,
+    jasmine: true,
+    jest: true,
+    node: true,
   },
   rules: {
-    'import/no-unresolved': [2, { commonjs: true, amd: true }],
-    'node/no-missing-import': 'error',
+    'prettier/prettier': ['error', { singleQuote: true }],
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-use-before-define': 0,
+    'import/no-named-as-default': 0,
+    'import/prefer-default-export': 0,
+    'react/destructuring-assignment': 1,
+    'prefer-destructuring': 1,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+  },
+  overrides: [
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+  ],
+  settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect',
+    },
+  },
+  parser: '@typescript-eslint/parser',
+  globals: {
+    environment: true,
   },
 };
