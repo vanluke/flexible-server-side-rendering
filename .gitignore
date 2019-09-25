@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+
 .DS_Store
 
 # Runtime data
@@ -63,3 +64,8 @@ typings/
 
 # next.js build output
 .next
+
+*.csr
+*.crt
+*.key
+

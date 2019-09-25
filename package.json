@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "generate-certs": "cd certs && ./cert-gen.sh server",
     "build:production": "NODE_ENV=production webpack --config ./config/webpack.config.production.js",
     "build:development": "NODE_ENV=development webpack --config ./config/webpack.config.development.js",
     "start": "node ./dist/server.js",
