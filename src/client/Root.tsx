@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { renderRoutes, RouteConfig } from 'react-router-config';
+import { ThemeProvider } from 'styled-components';
+import { skyBlue } from '../shared/theme';
 
 type RootProps = {
   route: {
@@ -8,7 +10,9 @@ type RootProps = {
 };
 
 const Root: React.FunctionComponent<RootProps> = props => (
-  <main>{renderRoutes(props.route.routes)}</main>
+  <ThemeProvider theme={skyBlue}>
+    <main>{renderRoutes(props.route.routes)}</main>
+  </ThemeProvider>
 );
 
 export default Root;

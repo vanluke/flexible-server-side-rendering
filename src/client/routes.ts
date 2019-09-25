@@ -1,6 +1,7 @@
 import Root from './Root';
 import Home from './Home';
 import About from './About';
+import Redirect from './Redirect';
 import NotFound from './NotFound';
 
 export const routes = [
@@ -14,14 +15,20 @@ export const routes = [
         component: Home,
       },
       {
+        exact: true,
         path: '/about',
         component: About,
       },
+      {
+        exact: true,
+        path: '/404',
+        component: NotFound,
+      },
+      {
+        path: '*',
+        component: Redirect,
+      },
     ],
-  },
-  {
-    path: '*',
-    component: NotFound,
   },
 ];
 

@@ -29,7 +29,7 @@ const entry = {
     : [paths.entryCss, paths.resetCss, paths.entry],
 };
 
-export default {
+const config = {
   name: 'client',
   target: 'web',
   node: {
@@ -42,7 +42,17 @@ export default {
   optimization: {
     minimize: PROD,
     runtimeChunk: true,
-    splitChunks: { chunks: 'all' },
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true,
+        },
+      },
+    },
   },
   entry,
   devtool: 'inline-source-map',
@@ -77,3 +87,11 @@ export default {
 
   plugins: [...plugins],
 };
+
+if (DEV) {
+  config.resolve.alias = {
+    'react-dom': '@hot-loader/react-dom',
+  };
+}
+
+export default config;

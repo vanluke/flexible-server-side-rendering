@@ -1,4 +1,5 @@
 import * as webpack from 'webpack';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as nodeExternals from 'webpack-node-externals';
 import loaders from './loaders';
 
@@ -40,6 +41,9 @@ export default {
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,
+    }),
+    new CleanWebpackPlugin({
+      verbose: true,
     }),
   ],
   externals: [

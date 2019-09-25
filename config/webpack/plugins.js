@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
@@ -13,9 +12,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 
 export default function(isProduction) {
   const plugins = [
-    new CleanWebpackPlugin({
-      verbose: true,
-    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       options: {

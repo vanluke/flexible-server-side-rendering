@@ -129,4 +129,25 @@ export const typescript = {
   exclude: [/node_modules/, paths.config],
 };
 
-export default [sourcemap, js, typescript, styles, video, images, fonts];
+export const eslint = {
+  test: /\.(ts|tsx)$/,
+  enforce: 'pre',
+  loader: 'eslint-loader',
+  exclude: /node_modules/,
+  options: {
+    failOnError: true,
+    emitWarning: true,
+    configFile: paths.eslint,
+  },
+};
+
+export default [
+  sourcemap,
+  js,
+  typescript,
+  styles,
+  video,
+  images,
+  fonts,
+  eslint,
+];

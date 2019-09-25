@@ -2,16 +2,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as React from 'react';
 import * as express from 'express';
-import {
-  ThemeProvider,
-  ServerStyleSheet,
-  StyleSheetManager,
-} from 'styled-components';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter, StaticRouterContext } from 'react-router';
 import { renderRoutes } from 'react-router-config';
 import routes from '../client/routes';
-import { skyBlue } from '../shared/theme';
 
 const getClientStats = (
   prod: boolean,
@@ -91,11 +86,9 @@ const render = ({ req, context }: Render) => {
   return {
     content: renderToString(
       <StyleSheetManager sheet={sheet.instance}>
-        <ThemeProvider theme={skyBlue}>
-          <StaticRouter location={req.url} context={context}>
-            {renderRoutes(routes)}
-          </StaticRouter>
-        </ThemeProvider>
+        <StaticRouter location={req.url} context={context}>
+          {renderRoutes(routes)}
+        </StaticRouter>
       </StyleSheetManager>
     ),
   };

@@ -16,4 +16,5 @@ module.exports = {
   favicon: getAppFiles('config/assets/icons8-house-stark-50.png'),
   entryCss: getAppFiles('src/client/fonts.css'),
   resetCss: getAppFiles('src/client/reset.css'),
+  eslint: getAppFiles('.eslintrc.js'),
 };
