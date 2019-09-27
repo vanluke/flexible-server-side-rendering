@@ -25,7 +25,7 @@ openssl rsa -in $domain.key -passin pass:$password -out $domain.key
 
 #Create the request
 echo "Creating CSR"
-openssl req -new -key $domain.key -out $domain.csr -passin pass:$password \
+openssl req -x509 -new -key $domain.key -out $domain.csr -passin pass:$password \
     -subj "/CN=$commonname"
 
 echo "---------------------------"
