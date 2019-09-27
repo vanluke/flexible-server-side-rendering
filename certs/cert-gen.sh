@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Required
-domain=$1
+domain=server
 commonname=$domain
 
 #Optional
