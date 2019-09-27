@@ -24,15 +24,15 @@ echo "Removing passphrase from key"
 openssl rsa -in $domain.key -passin pass:$password -out $domain.key
 
 #Create the request
-echo "Creating CSR"
-openssl req -x509 -new -key $domain.key -out $domain.csr -passin pass:$password \
+echo "Creating crt"
+openssl req -x509 -new -key $domain.key -out $domain.crt -passin pass:$password \
     -subj "/CN=$commonname"
 
 echo "---------------------------"
-echo "-----Below is your CSR-----"
+echo "-----Below is your crt-----"
 echo "---------------------------"
 echo
-cat $domain.csr
+cat $domain.crt
 
 echo
 echo "---------------------------"
